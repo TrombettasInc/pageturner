@@ -1,0 +1,71 @@
+.books-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.book-title {
+    color: rgb(136, 144, 136);
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2rem 0 1rem;
+
+}
+
+.title .query-text {
+    color: rgb(231, 153, 108);
+}
+
+.books-container div {
+    width: 30%;
+    color: rgb(176, 171, 171);
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+
+}
+
+.book-card img{
+    border-radius: 8px;
+    max-width: 100%;
+    width: 300px ;
+    height: 450px;
+    object-fit: cover;
+
+}
+
+.books-container div img,
+.books-container div h2,
+.movies-container div p{
+    margin-bottom:  1rem; /* define o espaco entre os items*/
+}
+
+.books-container div svg {
+    color: goldenrod;  /* define a cor do rating */
+}
+
+.books-container div a{
+    background-color: #bcbec1;
+    border-radius: 4px;
+    border: none;
+    color: rgb(136, 140, 143);
+    padding:1rem 0.5rem;
+    align-items: center;
+    transition: .4s;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 5px; 
+   
+    }
+    
+    .books-container div a:hover{
+        background-color: transparent;
+        color: rgb(61, 63, 63);
+    }

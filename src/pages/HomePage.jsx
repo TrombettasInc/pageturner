@@ -1,19 +1,17 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import BookCard from "./BookCard";
+import { API_URL } from "../config/api";
 
-const booksUrl = "https://pageturner.adaptable.app"
+import "./BookGrid.css"
 
 function HomePage() {
 
-  
   const [books, setBooks] = useState([]);
-
-
 
   const getBooks = () => {
     axios
-      .get(`${booksUrl}/reviews`)
+      .get(`${API_URL}/reviews`)
       .then((response) => {
         setBooks(response.data)
       })
@@ -21,25 +19,16 @@ function HomePage() {
 
   };
 
-
   useEffect(() => {
     getBooks();
   }, [])
 
   return (
-    <div className="ProjectListPage">
-
-      {books.map((element) => {
-        return (
-          <div className="books-container" key={books.id} >
-            <Link to={`/reviews/${element.id}`}>
-              <h3>{element.bookTitle}</h3>
-            </Link>
-          </div>
-        );
-      })}
-
+    <div className="books-container">
+     {books.length === 0 && <p>Loading...</p> }
+     {books.length > 0 && books.map((book)=> <BookCard key={books.id} book={book}/>)}
     </div>
+    
   )
 }
 
