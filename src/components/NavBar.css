@@ -4,6 +4,7 @@
     align-items: center;
     padding: 1rem 2rem; /*pros elementos nao ficarem tao proximos das extremidades*/
     background-color: rgb(183, 184, 170);
+    border-radius: 6px;
 }
 #navbar h2 a{
     display: flex;

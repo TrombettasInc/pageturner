@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import BookCard from "./BookCard";
-import { API_URL } from "../config/api"
+import { API_GO, API_KEY } from "../config/api"
 import './BookGrid.css'
 
 
@@ -11,6 +11,20 @@ function Search() {
   const [books, setBooks] = useState([]);
   const query = searchParams.get("q"); // para saber que esta procurando tal livro
 
+  const getSearchedBooks = async (url) => {
+  const res = await fetch(url);
+  const data = await res.json();
+
+  setBooks(data.items);
+  console.log(data);
+
+  };
+
+  useEffect(() => {
+    const searchWithGoogle = `${API_GO}/volumes?q=${query}${API_KEY}`;
+
+    getSearchedBooks(searchWithGoogle);
+  }, [])
   
 
     return (

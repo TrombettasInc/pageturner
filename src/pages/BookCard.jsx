@@ -8,9 +8,12 @@ function BookCard ({book, showLink=true}) {
 
     return (
     <div className="book-card" key={book.id}>
-     <img src={book.image} alt={book.bookTitle} />
+     <img src={book.volumeInfo.imageLinks === undefined
+        ? ""
+        : `${book.volumeInfo.imageLinks.thumbnail}`
+  } alt={book.volumeInfo.title} />
      
-      <h2 className="book-title">{book.bookTitle}</h2>
+      <h2 className="book-title">{book.volumeInfo.title}</h2>
       <p>
         <FaStar /> {book.rating}
       </p>
