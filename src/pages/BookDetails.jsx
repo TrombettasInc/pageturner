@@ -29,11 +29,7 @@ function BookDetails() {
           </>}
       </div>
 
-      <div>
-        <button>
-        <Link to={`/create/${books.id}`} />
-        </button>
-      </div>
+
     </>
   )
 }

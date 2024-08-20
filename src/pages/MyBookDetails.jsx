@@ -8,7 +8,7 @@ import './BookGrid.css'
 
 function MyBookDetails() {
 
-    const [review, setReview] = useState(null);
+    const [books, setBooks] = useState(null);
 
     const { id } = useParams();
 
@@ -16,7 +16,7 @@ function MyBookDetails() {
         axios
             .get(`${API_URL}reviews/${id}`)
             .then((response) => {
-                setReview(response.data);
+                setBooks(response.data);
             })
             .catch((error) => console.log("error loading", error));
     }
@@ -27,16 +27,17 @@ function MyBookDetails() {
 
     return (
         <div>
-            {review &&
+            {books &&
                 <>
-                    <BookCard book={review} showLink={false} />
-                    <p className="authors">{review.volumeInfo.authors}</p>
-                    <p className="text-snippet">{review.searchInfo.textSnippet} </p>
-                    <p className="category">{review.volumeInfo.categories}</p>
-                    <p className="review">{review.review}</p>
+                    <BookCard book={books} showLink={false} />
+                    <p className="authors">{books.volumeInfo.authors}</p>
+                    <p className="text-snippet">{books.searchInfo.textSnippet} </p>
+                    <p className="category">{books.volumeInfo.categories}</p>
+                    <p className="review">{books.review}</p>
                     <button className="button"> Create a review
-                        <Link to={`/create/${review.id}`} />
+                        <Link to={`create/${id}`} />
                     </button>
+
                 </>}
 
 
@@ -45,3 +46,5 @@ function MyBookDetails() {
 }
 
 export default MyBookDetails;
+
+

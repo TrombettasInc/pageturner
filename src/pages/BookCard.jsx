@@ -4,7 +4,7 @@ import {FaStar} from "react-icons/fa";
 import "./BookGrid.css"
 
 function BookCard ({book, showLink=true}) {
-    
+
 
     return (
     <div className="book-card" key={book.id}>

@@ -18,6 +18,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage/>} />
       <Route path="reviews/:id" element={<MyBookDetails/>} />
+      <Route path="create/:id" element={<Create/>}/>
       <Route path="search" element={<Search/>} />
     </Routes>
   

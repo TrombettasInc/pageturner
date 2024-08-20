@@ -1,12 +1,75 @@
+import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config/api";
+import "./Create.css"
+
 
 function Create() {
-  
 
-    return (
-      <>
-      <h1>Create</h1>
-      </>
-    )
+  const [review, setReview] = useState("");
+  const [rating, setRating] = useState(0);
+  const [name, setName] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
   }
-  
-  export default Create;
+  const newReview = {
+    review: review,
+    rating: rating,
+    name: name
+  };
+
+  axios.post(`${API_URL}reviews`, newReview)
+    .then(response => {
+      navigate("reviews");
+    })
+    .catch(e => console.log("error creating review", e))
+
+  return (
+    <div className="create-review">
+
+      <h3>Add Review</h3>
+
+      <form onSubmit={handleSubmit}>
+
+        <label>
+          Review:
+          <input
+            type="text"
+            name="title"
+            placeholder="enter your review"
+            value={review}
+            onChange={(e) => { setReview(e.target.value) }}
+          />
+          <br />
+
+          Rating:
+          <input
+            type="number"
+            name="rating"
+            value={rating}
+            onChange={(e) => setRating(e.target.value)}
+            required
+          />
+          <br />
+
+          Your Name:
+          <input
+            type="text"
+            name="name"
+            placeholder="enter your name"
+            value={name}
+            onChange={(e) => { setName(e.target.value) }}
+          />
+        </label>
+
+        <button>Create</button>
+      </form>
+    </div>
+  )
+}
+
+export default Create;
