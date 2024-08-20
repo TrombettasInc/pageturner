@@ -8,19 +8,19 @@
 }
 
 .book-title {
-    color: rgb(136, 144, 136);
+    color: #F9A822;
     font-size: 1.5rem;
     margin: 2rem 0 1rem;
 
 }
 
 .title .query-text {
-    color: rgb(231, 153, 108);
+    color: #F9A822;
 }
 
 .books-container div {
     width: 30%;
-    color: rgb(176, 171, 171);
+    color: #F96635;
     margin-bottom: 2.5rem;
     display: flex;
     flex-direction: column;
@@ -29,10 +29,10 @@
 
 }
 
-.book-card img{
+.book-card img {
     border-radius: 8px;
     max-width: 100%;
-    width: 300px ;
+    width: 300px;
     height: 450px;
     object-fit: cover;
 
@@ -40,32 +40,55 @@
 
 .books-container div img,
 .books-container div h2,
-.movies-container div p{
-    margin-bottom:  1rem; /* define o espaco entre os items*/
+.movies-container div p {
+    margin-bottom: 1rem;
+    /* define o espaco entre os items*/
 }
 
 .books-container div svg {
-    color: goldenrod;  /* define a cor do rating */
+    color: goldenrod;
+    /* define a cor do rating */
 }
 
-.books-container div a{
+.books-container div a {
     display: inline-block;
-    background-color: #bcbec1;
+    background-color: #93D3AE;
     border-radius: 4px;
     border: none;
     color: rgb(136, 140, 143);
-    padding:1rem 0.5rem;
+    padding: 1rem 0.5rem;
     align-items: center;
     transition: .4s;
     text-align: center;
     font-weight: bold;
     font-size: 20px;
     margin-top: 10px;
-    margin-left: 5px; 
-   
-    }
-    
-    .books-container div a:hover{
-        background-color: transparent;
-        color: rgb(61, 63, 63);
-    }
+    margin-left: 5px;
+
+}
+
+.books-container div a:hover {
+    background-color: transparent;
+    color: rgb(61, 63, 63);
+}
+
+.button {
+    background: linear-gradient(#1ad191, #61c489);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+
+  .button:hover {
+    background: linear-gradient( #A5C9FF, #6D83F2);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }

@@ -24,7 +24,7 @@ function Search() {
     const searchWithGoogle = `${API_GO}/volumes?q=${query}${API_KEY}`;
 
     getSearchedBooks(searchWithGoogle);
-  }, [])
+  }, [query])
   
 
     return (

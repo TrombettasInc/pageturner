@@ -3,7 +3,7 @@ import { Link, Route, Routes } from 'react-router-dom'
 
 import './App.css'
 import NavBar from './components/NavBar'
-import BookDetails from './pages/BookDetails'
+import MyBookDetails from './pages/MyBookDetails'
 import HomePage from './pages/HomePage'
 import Search from './pages/Search'
 import Create from './pages/Create'
@@ -17,9 +17,8 @@ function App() {
 
     <Routes>
       <Route path="/" element={<HomePage/>} />
-      <Route path="reviews/:id" element={<BookDetails/>} />
+      <Route path="reviews/:id" element={<MyBookDetails/>} />
       <Route path="search" element={<Search/>} />
-      <Route path="/create" element={<Create/>} />
     </Routes>
   
     </>
