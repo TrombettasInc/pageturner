@@ -12,25 +12,24 @@ function EditAReview() {
     const [originalReview, setOriginalReview] = useState(null);
 
     const navigate = useNavigate();
-    const { bookId } = useParams();
+    const { bookId, reviewId } = useParams();
    
 
     useEffect(() => {
-        axios.get(`${API_URL}/${bookId}`) 
-        .then(response => {
-            const book = response.data;
-            // carrega o formulario com os dados que ja existem 
-            const existingReview = book.volumeInfo.userReviews.find(r => r.review === review);
-            if (existingReview) {
-                setOriginalReview(existingReview.review)
-                setReview(existingReview.review);
-                setRating(existingReview.rating);
-                setName(existingReview.reviewName);
-            }
-        })
-            .catch(e => console.log(e))
-
-    }, [bookId, review])
+        axios.get(`${API_URL}/${bookId}`)
+            .then(response => {
+                const book = response.data;
+                // Find the existing review by its ID
+                const existingReview = book.volumeInfo.userReviews.find(r => r.id === parseInt(reviewId));
+                if (existingReview) {
+                    setOriginalReview(existingReview.review);
+                    setReview(existingReview.review);
+                    setRating(existingReview.rating);
+                    setName(existingReview.reviewName);
+                }
+            })
+            .catch(e => console.log("Error loading review", e));
+    }, [bookId, reviewId]);
 
     const handleFormSubmit = (e) => {
         e.preventDefault();

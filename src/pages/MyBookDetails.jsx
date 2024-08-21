@@ -9,27 +9,32 @@ import './BookGrid.css'
 function MyBookDetails() {
 
     const [books, setBooks] = useState(null);
+    const [review, setReview] = useState(null);
 
-    const { bookId } = useParams();
+    const { bookId, reviewId } = useParams();
+ 
 
     const GetBook = () => {
         axios
             .get(`${API_URL}/${bookId}`)
             .then((response) => {
                 setBooks(response.data);
-                console.log(response)
+                setReview(response.data.volumeInfo.userReviews)
+                
             })
             .catch((error) => console.log("error loading", error));
+            
     }
-
+    
     useEffect(() => {
         GetBook();
-    }, [])
+        
+    }, [bookId])
 
 
     return (
         <div>
-            {books && (
+            {books && books.volumeInfo && (
                 <>
                     <BookCard book={books} showLink={false} />
                     <p className="authors">Authors: {books.volumeInfo.authors}</p>
@@ -43,8 +48,10 @@ function MyBookDetails() {
                                 <p><strong>Review:</strong> {review.review}</p>
                                 <p><strong>Reviewed by:</strong> {review.reviewName}</p>
                                 <p><strong>Rating:</strong> {review.rating}</p>
-                                <Link to={`/edit-reviews/${books.id}`}>
+                                
+                                <Link to={`/books/${books.id}/edit-review/${review.id}`}>
                                     <button className="button">Edit review</button>
+                                    
                                 </Link>
                             </div>
                         ))
@@ -55,6 +62,7 @@ function MyBookDetails() {
                     <Link to={`/create-review/${books.id}`}>
                         <button className="button">Create a review</button>
                     </Link>
+
                 </>
             )}
         </div>
