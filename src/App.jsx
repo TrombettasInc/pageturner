@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import { Link, Route, Routes } from 'react-router-dom'
+
+import { Route, Routes } from 'react-router-dom'
 
 import './App.css'
 import NavBar from './components/NavBar'
 import MyBookDetails from './pages/MyBookDetails'
 import HomePage from './pages/HomePage'
 import Search from './pages/Search'
-import Create from './pages/Create'
-import EditCreat from './pages/EditCreat'
+import CreateAReview from './pages/CreateAReview'
+import EditAReview from './pages/EditAReview'
 
 function App() {
   
@@ -18,9 +18,9 @@ function App() {
 
     <Routes>
       <Route path="/" element={<HomePage/>} />
-      <Route path="reviews/:id" element={<MyBookDetails/>} />
-      <Route path="create/:id" element={<Create/>}/>
-      <Route path="edit/:id" element={<EditCreat/>}/>
+      <Route path="books/:bookid" element={<MyBookDetails/>} />
+      <Route path="create-review/:bookid" element={<CreateAReview/>}/>
+      <Route path="books/:bookId/edit-reviews/:reviewId" element={<EditAReview/>}/>
       <Route path="search" element={<Search/>} />
     </Routes>
   

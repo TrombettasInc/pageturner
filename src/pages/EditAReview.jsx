@@ -2,25 +2,25 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../config/api";
 import { useNavigate, useParams } from "react-router-dom";
-import "./Create.css"
+import "./EditAReview.css"
 
 
-function EditCreat() {
+function EditAReview() {
     const [review, setReview] = useState("");
     const [rating, setRating] = useState(0);
     const [name, setName] = useState("");
     const [originalReview, setOriginalReview] = useState(null);
 
     const navigate = useNavigate();
-    const { id: bookId } = useParams();
-    const { reviewId: reviewId } = useParams()
+    const { bookId } = useParams();
+   
 
     useEffect(() => {
         axios.get(`${API_URL}/${bookId}`) 
         .then(response => {
             const book = response.data;
             // carrega o formulario com os dados que ja existem 
-            const existingReview = book.volumeInfo.userReviews[0];;
+            const existingReview = book.volumeInfo.userReviews.find(r => r.review === review);
             if (existingReview) {
                 setOriginalReview(existingReview.review)
                 setReview(existingReview.review);
@@ -30,7 +30,7 @@ function EditCreat() {
         })
             .catch(e => console.log(e))
 
-    }, [bookId])
+    }, [bookId, review])
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -58,7 +58,7 @@ function EditCreat() {
             });
         })
         .then(() => {
-            navigate(`/reviews/${bookId}`);
+            navigate(`/books/${bookId}`);
         })
         .catch(e => console.log("Error updating review", e));
     }
@@ -67,7 +67,9 @@ function EditCreat() {
         axios.get(`${API_URL}/${bookId}`)
             .then(response => {
                 const book = response.data;
+                
                 const updatedReviews = book.volumeInfo.userReviews.filter(review => review.review !== reviewToDelete);
+                console.log("Updated reviews array:", updatedReviews);
     
                 return axios.put(`${API_URL}/${bookId}`, {
                     ...book,
@@ -79,7 +81,7 @@ function EditCreat() {
             })
             .then(() => {
                 console.log("Review deleted successfully");
-                navigate(`/reviews/${bookId}`);
+                navigate(`/books/${bookId}`);
             })
             .catch(error => {
                 console.error("Error deleting the review", error);
@@ -88,13 +90,13 @@ function EditCreat() {
 
 
     return (
-        <div className="create-review-container">
-            <h3>Edit Review</h3>
-            <form onSubmit={handleFormSubmit} >
-
+        <div className="edit-review-container">
+            
+            <form onSubmit={handleFormSubmit} className="edit-review-form">
+            <h2>Edit Review</h2>
                 <label>
                     Your Name:
-                    <input
+                    <input 
                         type="text"
                         name="name"
                         placeholder="enter your name"
@@ -123,13 +125,14 @@ function EditCreat() {
                 </label>
 
                <button type="submit">Update review</button>
+               <button  onClick={deleteReview}>Delete Review</button>
 
             </form>
 
-            <button onClick={deleteReview}>Delete Review</button>
+            
         </div>
 
     )
 }
 
-export default EditCreat;
+export default EditAReview;

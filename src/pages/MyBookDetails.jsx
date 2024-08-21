@@ -38,7 +38,7 @@ function MyBookDetails() {
                     <h4>Reviews:</h4>
                     {books.volumeInfo.userReviews && books.volumeInfo.userReviews.length > 0 ? (
                         books.volumeInfo.userReviews.map((review, index) => (
-                            <div key={index} className="review">
+                            <div key={index} className="reviews-container">
                                 <p><strong>Review:</strong> {review.review}</p>
                                 <p><strong>Reviewed by:</strong> {review.reviewName}</p>
                                 <p><strong>Rating:</strong> {review.rating}</p>
@@ -51,7 +51,7 @@ function MyBookDetails() {
                         <p>No reviews yet.</p>
                     )}
                     
-                    <Link to={`/create/${books.id}`}>
+                    <Link to={`/create-review/${books.id}`}>
                         <button className="button">Create a review</button>
                     </Link>
                 </>

@@ -2,11 +2,11 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../config/api";
-import "./Create.css"
+import "./CreateAReview.css"
 import { useParams } from "react-router-dom";
 
 
-function Create() {
+function CreateAReview() {
 
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(0);
@@ -40,7 +40,7 @@ function Create() {
         });
       })
       .then(() => {
-        navigate(`/reviews/${bookId}`);
+        navigate(`/books/${bookId}`);
       })
       .catch(e => console.error("Error updating reviews", e));
   }
@@ -82,10 +82,10 @@ function Create() {
 
         </label>
 
-        <button>Create</button>
+        <button >Create</button>
       </form>
     </div>
   )
 }
 
-export default Create;
+export default CreateAReview;

@@ -1,0 +1,92 @@
+.edit-review-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 65vh;
+    background-color: #FAECB6 
+    padding: 20px;
+    box-sizing: border-box;
+    margin-top: 190px;
+}
+
+.edit-review-form {
+    background-color: #F9A822;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-review-form h2 {
+    color: #3f3f3f; 
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.edit-review-form label {
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #333333; 
+    width: 100%;
+}
+
+.edit-text {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #000000; 
+    background-color: #ffffff; 
+}
+
+.edit-review-form input[type="number"],
+.edit-review-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #000000; 
+    background-color: #fff1dc; 
+}
+
+.edit-review-form input[type="text"]::placeholder,
+.edit-review-form input[type="number"]::placeholder {
+    color: #999999; 
+}
+
+.edit-review-form button {
+    background: linear-gradient(#6ce4ba, #61c489);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+.edit-review-form button:hover {
+    background: linear-gradient(#ffb096, #f96635);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
