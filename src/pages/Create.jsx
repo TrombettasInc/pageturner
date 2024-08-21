@@ -25,13 +25,24 @@ function Create() {
   };
   
 
-  axios.post(`${API_URL}/${bookId}/reviews`, newReview)
-  
-    .then(response => {
+  axios.get(`${API_URL}/${bookId}`)
+  .then(response => {
+    const book = response.data;
+    const updatedReviews = [...book.volumeInfo.userReviews, newReview];
 
-      navigate(`/reviews/${bookId}`);
-    })
-    .catch(e => console.log("error creating review", e))
+    // Update the book with the new review
+    return axios.put(`${API_URL}/${bookId}`, {
+      ...book,
+      volumeInfo: {
+        ...book.volumeInfo,
+        userReviews: updatedReviews
+      }
+    });
+  })
+  .then(() => {
+    navigate(`/reviews/${bookId}`);
+  })
+  .catch(e => console.error("Error updating reviews", e));
   }
   
 
