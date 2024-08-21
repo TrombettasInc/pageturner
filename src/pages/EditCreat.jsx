@@ -21,6 +21,7 @@ function EditCreat() {
             // carrega o formulario com os dados que ja existem 
             const existingReview = book.volumeInfo.userReviews[0];;
             if (existingReview) {
+                setOriginalReview(existingReview.review)
                 setReview(existingReview.review);
                 setRating(existingReview.rating);
                 setName(existingReview.reviewName);
