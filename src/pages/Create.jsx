@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../config/api";
 import "./Create.css"
+import { useParams } from "react-router-dom";
 
 
 function Create() {
@@ -12,21 +13,27 @@ function Create() {
   const [name, setName] = useState("");
 
   const navigate = useNavigate();
+  const { id: bookId } = useParams();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  }
+
   const newReview = {
     review: review,
     rating: rating,
-    name: name
+    reviewName: name,
   };
+  
 
-  axios.post(`${API_URL}`, newReview)
+  axios.post(`${API_URL}/${bookId}/reviews`, newReview)
+  
     .then(response => {
-      navigate("reviews");
+
+      navigate(`/reviews/${bookId}`);
     })
     .catch(e => console.log("error creating review", e))
+  }
+  
 
   return (
     <div className="create-review">

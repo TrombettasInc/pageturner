@@ -25,26 +25,37 @@ function MyBookDetails() {
         GetBook();
     }, [])
 
-    console.log(books)
 
     return (
         <div>
-            {books &&
+            {books && (
                 <>
                     <BookCard book={books} showLink={false} />
                     <p className="authors">Authors: {books.volumeInfo.authors}</p>
                     <p className="text-snippet">Description: {books.searchInfo.textSnippet} </p>
                     <p className="category">Genre: {books.volumeInfo.categories}</p>
-                    <p className="review">Current Review: {books.volumeInfo.review}</p>
-                    <p className="review-name">reviewed by: {books.volumeInfo.reviewName}</p>
+
+                    <h4>Reviews:</h4>
+                    {books.volumeInfo.userReviews && books.volumeInfo.userReviews.length > 0 ? (
+                        books.volumeInfo.userReviews.map((review, index) => (
+                            <div key={index} className="review">
+                                <p><strong>Review:</strong> {review.review}</p>
+                                <p><strong>Reviewed by:</strong> {review.reviewName}</p>
+                                <p><strong>Rating:</strong> {review.rating}</p>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No reviews yet.</p>
+                    )}
+                    
                     <Link to={`/create/${books.id}`}>
-                    <button className="button"> Create a review</button>
+                        <button className="button">Create a review</button>
                     </Link>
-                </>}
-
-
+                </>
+            )}
         </div>
-    )
+    );
+    
 }
 
 export default MyBookDetails;
