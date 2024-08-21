@@ -10,13 +10,14 @@ function MyBookDetails() {
 
     const [books, setBooks] = useState(null);
 
-    const { id } = useParams();
+    const { bookId } = useParams();
 
     const GetBook = () => {
         axios
-            .get(`${API_URL}/${id}`)
+            .get(`${API_URL}/${bookId}`)
             .then((response) => {
                 setBooks(response.data);
+                console.log(response)
             })
             .catch((error) => console.log("error loading", error));
     }
@@ -42,15 +43,15 @@ function MyBookDetails() {
                                 <p><strong>Review:</strong> {review.review}</p>
                                 <p><strong>Reviewed by:</strong> {review.reviewName}</p>
                                 <p><strong>Rating:</strong> {review.rating}</p>
-                                <Link to={`/edit/${books.id}`}>
-                        <button className="button">Edit review</button>
-                    </Link>
+                                <Link to={`/edit-reviews/${books.id}`}>
+                                    <button className="button">Edit review</button>
+                                </Link>
                             </div>
                         ))
                     ) : (
                         <p>No reviews yet.</p>
                     )}
-                    
+
                     <Link to={`/create-review/${books.id}`}>
                         <button className="button">Create a review</button>
                     </Link>
@@ -58,7 +59,7 @@ function MyBookDetails() {
             )}
         </div>
     );
-    
+
 }
 
 export default MyBookDetails;

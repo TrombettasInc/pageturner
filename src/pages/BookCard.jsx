@@ -18,7 +18,7 @@ function BookCard({ book, showLink = true }) {
       <p>
         <Rating value={book.volumeInfo?.rating || 0} /> {book.volumeInfo?.rating || "No rating"}
       </p>
-      {showLink && <Link to={`/reviews/${book.id}`}>Details</Link>}
+      {showLink && <Link to={`/books/${book.id}`}>Details</Link>}
     </div>
   );
 }

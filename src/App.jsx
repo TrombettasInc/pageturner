@@ -18,9 +18,9 @@ function App() {
 
     <Routes>
       <Route path="/" element={<HomePage/>} />
-      <Route path="books/:bookid" element={<MyBookDetails/>} />
-      <Route path="create-review/:bookid" element={<CreateAReview/>}/>
-      <Route path="books/:bookId/edit-reviews/:reviewId" element={<EditAReview/>}/>
+      <Route path="books/:bookId" element={<MyBookDetails/>} />
+      <Route path="create-review/:bookId" element={<CreateAReview/>}/>
+      <Route path="/edit-reviews/:reviewId" element={<EditAReview/>}/>
       <Route path="search" element={<Search/>} />
     </Routes>
   
