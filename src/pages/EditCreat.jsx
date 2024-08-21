@@ -13,6 +13,7 @@ function EditCreat() {
 
     const navigate = useNavigate();
     const { id: bookId } = useParams();
+    const { reviewId: reviewId } = useParams()
 
     useEffect(() => {
         axios.get(`${API_URL}/${bookId}`) 
@@ -62,13 +63,28 @@ function EditCreat() {
         .catch(e => console.log("Error updating review", e));
     }
 
-    const deleteReview = () => {
-        axios.delete(`${API_URL}/${bookId}`)
+    const deleteReview = (reviewToDelete) => {
+        axios.get(`${API_URL}/${bookId}`)
             .then(response => {
-                navigate(`/reviews/${bookId}`); //tem que ajeitar isso pra nao deletar o livro, soh a review//
+                const book = response.data;
+                const updatedReviews = book.volumeInfo.userReviews.filter(review => review.review !== reviewToDelete);
+    
+                return axios.put(`${API_URL}/${bookId}`, {
+                    ...book,
+                    volumeInfo: {
+                        ...book.volumeInfo,
+                        userReviews: updatedReviews
+                    }
+                });
             })
-            .catch(e => console.log("error deleting rewview", e))
-    }
+            .then(() => {
+                console.log("Review deleted successfully");
+                navigate(`/reviews/${bookId}`);
+            })
+            .catch(error => {
+                console.error("Error deleting the review", error);
+            });
+    };
 
 
     return (
