@@ -14,7 +14,7 @@ function MyBookDetails() {
 
     const GetBook = () => {
         axios
-            .get(`${API_URL}reviews/${id}`)
+            .get(`${API_URL}/${id}`)
             .then((response) => {
                 setBooks(response.data);
             })
@@ -25,17 +25,20 @@ function MyBookDetails() {
         GetBook();
     }, [])
 
+    console.log(books)
+
     return (
         <div>
             {books &&
                 <>
                     <BookCard book={books} showLink={false} />
-                    <p className="authors">{books.volumeInfo.authors}</p>
-                    <p className="text-snippet">{books.searchInfo.textSnippet} </p>
-                    <p className="category">{books.volumeInfo.categories}</p>
-                    <p className="review">{books.review}</p>
+                    <p className="authors">Authors: {books.volumeInfo.authors}</p>
+                    <p className="text-snippet">Description: {books.searchInfo.textSnippet} </p>
+                    <p className="category">Genre: {books.volumeInfo.categories}</p>
+                    <p className="review">Current Review: {books.volumeInfo.review}</p>
+                    <p className="review-name">reviewed by: {books.volumeInfo.reviewName}</p>
                     <button className="button"> Create a review
-                        <Link to={`create/${id}`} />
+                        <Link to={`/create/${books.id}`} />
                     </button>
 
                 </>}

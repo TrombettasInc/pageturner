@@ -11,7 +11,7 @@ function HomePage() {
 
   const getBooks = () => {
     axios
-      .get(`${API_URL}/reviews/`)
+      .get(API_URL)
       .then((response) => {
         setBooks(response.data)
       })

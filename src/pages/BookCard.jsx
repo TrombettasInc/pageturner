@@ -1,6 +1,6 @@
 import { Link }from "react-router-dom";
 import {FaStar} from "react-icons/fa";
-
+import Rating from "../components/Rating"
 import "./BookGrid.css"
 
 function BookCard ({book, showLink=true}) {
@@ -15,7 +15,7 @@ function BookCard ({book, showLink=true}) {
      
       <h2 className="book-title">{book.volumeInfo.title}</h2>
       <p>
-        <FaStar /> {book.rating}
+        <Rating /> {book.volumeInfo.rating}
       </p>
       {showLink && <Link to={`/reviews/${book.id}`} >Details</Link>}
     </div>
