@@ -32,6 +32,7 @@ export default function BasicRating() {
         fetchRating();
       }, []);
       
+      
 
   // Function to handle when rating is changed
   const handleRatingChange = async (event, newValue) => {
@@ -46,12 +47,16 @@ export default function BasicRating() {
   return (
     <Box>
       <Typography component="legend">Rating</Typography>
-      <Rating
-        name="simple-controlled"
-        value={value}
-        onChange={handleRatingChange}
-      />
-      {console.log('Displayed Rating:', value)}
+      {value !== null ? (
+        <Rating
+          name="simple-controlled"
+          value={value}
+          onChange={handleRatingChange}
+        />
+      ) : (
+        <Typography>No rating available</Typography>
+      )}
     </Box>
   );
+  
 }
