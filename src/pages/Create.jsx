@@ -22,7 +22,7 @@ function Create() {
     name: name
   };
 
-  axios.post(`${API_URL}reviews`, newReview)
+  axios.post(`${API_URL}`, newReview)
     .then(response => {
       navigate("reviews");
     })

@@ -37,10 +37,9 @@ function MyBookDetails() {
                     <p className="category">Genre: {books.volumeInfo.categories}</p>
                     <p className="review">Current Review: {books.volumeInfo.review}</p>
                     <p className="review-name">reviewed by: {books.volumeInfo.reviewName}</p>
-                    <button className="button"> Create a review
-                        <Link to={`/create/${books.id}`} />
-                    </button>
-
+                    <Link to={`/create/${books.id}`}>
+                    <button className="button"> Create a review</button>
+                    </Link>
                 </>}
 
 

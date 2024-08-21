@@ -1,28 +1,26 @@
-import { Link }from "react-router-dom";
-import {FaStar} from "react-icons/fa";
-import Rating from "../components/Rating"
-import "./BookGrid.css"
+import { Link } from "react-router-dom";
+import { FaStar } from "react-icons/fa";
+import Rating from "../components/Rating";
+import "./BookGrid.css";
 
-function BookCard ({book, showLink=true}) {
-
-
-    return (
+function BookCard({ book, showLink = true }) {
+  return (
     <div className="book-card" key={book.id}>
-     <img src={book.volumeInfo.imageLinks === undefined
-        ? ""
-        : `${book.volumeInfo.imageLinks.thumbnail}`
-  } alt={book.volumeInfo.title} />
-     
-      <h2 className="book-title">{book.volumeInfo.title}</h2>
+      <img
+        src={
+          book.volumeInfo && book.volumeInfo.imageLinks
+            ? book.volumeInfo.imageLinks.thumbnail
+            : ""
+        }
+        alt={book.volumeInfo ? book.volumeInfo.title : "No title available"}
+      />
+      <h2 className="book-title">{book.volumeInfo?.title || "No title available"}</h2>
       <p>
-        <Rating /> {book.volumeInfo.rating}
+        <Rating value={book.volumeInfo?.rating || 0} /> {book.volumeInfo?.rating || "No rating"}
       </p>
-      {showLink && <Link to={`/reviews/${book.id}`} >Details</Link>}
+      {showLink && <Link to={`/reviews/${book.id}`}>Details</Link>}
     </div>
-
-
-    )
-  
+  );
 }
-  
-  export default BookCard;
+
+export default BookCard;
