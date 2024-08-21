@@ -18,52 +18,50 @@ function Create() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-  const newReview = {
-    review: review,
-    rating: rating,
-    reviewName: name,
-  };
-  
+    const newReview = {
+      review: review,
+      rating: rating,
+      reviewName: name,
+    };
 
-  axios.get(`${API_URL}/${bookId}`)
-  .then(response => {
-    const book = response.data;
-    const updatedReviews = [...book.volumeInfo.userReviews, newReview];
+    // get the array of reviews for a specific book//
+    axios.get(`${API_URL}/${bookId}`)
+      .then(response => {
+        const book = response.data;
+        const updatedReviews = [...book.volumeInfo.userReviews, newReview];
 
-    // Update the book with the new review
-    return axios.put(`${API_URL}/${bookId}`, {
-      ...book,
-      volumeInfo: {
-        ...book.volumeInfo,
-        userReviews: updatedReviews
-      }
-    });
-  })
-  .then(() => {
-    navigate(`/reviews/${bookId}`);
-  })
-  .catch(e => console.error("Error updating reviews", e));
+        // Update the book with the new review//
+        return axios.put(`${API_URL}/${bookId}`, {
+          ...book,
+          volumeInfo: {
+            ...book.volumeInfo,
+            userReviews: updatedReviews
+          }
+        });
+      })
+      .then(() => {
+        navigate(`/reviews/${bookId}`);
+      })
+      .catch(e => console.error("Error updating reviews", e));
   }
-  
+
 
   return (
-    <div className="create-review">
+    <div className="create-review-container">
 
-      <h3>Add Review</h3>
-
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="create-review-form">
+        <h2>Add a new Review</h2>
 
         <label>
-          Review:
+          Your Name:
           <input
             type="text"
-            name="title"
-            placeholder="enter your review"
-            value={review}
-            onChange={(e) => { setReview(e.target.value) }}
+            name="name"
+            placeholder="enter your name"
+            value={name}
+            onChange={(e) => { setName(e.target.value) }}
           />
           <br />
-
           Rating:
           <input
             type="number"
@@ -73,15 +71,16 @@ function Create() {
             required
           />
           <br />
-
-          Your Name:
-          <input
+          Review:
+          <input className="review-text"
             type="text"
-            name="name"
-            placeholder="enter your name"
-            value={name}
-            onChange={(e) => { setName(e.target.value) }}
+            name="title"
+            placeholder="enter your review"
+            value={review}
+            onChange={(e) => { setReview(e.target.value) }}
           />
+
+
         </label>
 
         <button>Create</button>

@@ -3,14 +3,14 @@
     justify-content: center;
     align-items: center;
     min-height: 65vh;
-    background-color: #ffffff; 
+    background-color: #FAECB6 
     padding: 20px;
     box-sizing: border-box;
     margin-top: 190px;
 }
 
 .create-review-form {
-    background-color: white;
+    background-color: #F9A822;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -35,10 +35,9 @@
     width: 100%;
 }
 
-.create-review-form input[type="text"],
-.create-review-form input[type="number"],
-.create-review-form input[type="file"] {
+.review-text{
     width: 100%;
+    height: 200px;
     padding: 10px;
     margin-top: 5px;
     border: 1px solid #ccc;
@@ -50,24 +49,43 @@
     background-color: #ffffff; 
 }
 
+.create-review-form input[type="number"],
+.create-review-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #000000; 
+    background-color: #fff1dc; 
+}
+
 .create-review-form input[type="text"]::placeholder,
 .create-review-form input[type="number"]::placeholder {
     color: #999999; 
 }
 
 .create-review-form button {
-    background-color: #918e8e; 
-    color: white;
-    padding: 10px 20px;
+    background: linear-gradient(#6ce4ba, #61c489);
     border: none;
-    border-radius: 5px;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 1em;
-    text-align: center;
-    margin-top: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .create-review-form button:hover {
-    background-color: #555;
+    background: linear-gradient(#ffb096, #f96635);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
 }
 

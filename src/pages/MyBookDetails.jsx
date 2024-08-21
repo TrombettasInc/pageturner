@@ -42,6 +42,9 @@ function MyBookDetails() {
                                 <p><strong>Review:</strong> {review.review}</p>
                                 <p><strong>Reviewed by:</strong> {review.reviewName}</p>
                                 <p><strong>Rating:</strong> {review.rating}</p>
+                                <Link to={`/edit/${books.id}`}>
+                        <button className="button">Edit review</button>
+                    </Link>
                             </div>
                         ))
                     ) : (

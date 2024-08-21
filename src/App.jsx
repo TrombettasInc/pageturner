@@ -7,6 +7,7 @@ import MyBookDetails from './pages/MyBookDetails'
 import HomePage from './pages/HomePage'
 import Search from './pages/Search'
 import Create from './pages/Create'
+import EditCreat from './pages/EditCreat'
 
 function App() {
   
@@ -19,6 +20,7 @@ function App() {
       <Route path="/" element={<HomePage/>} />
       <Route path="reviews/:id" element={<MyBookDetails/>} />
       <Route path="create/:id" element={<Create/>}/>
+      <Route path="edit/:id" element={<EditCreat/>}/>
       <Route path="search" element={<Search/>} />
     </Routes>
   
