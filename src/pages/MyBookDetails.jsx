@@ -31,6 +31,7 @@ function MyBookDetails() {
 
     }, [bookId, reviewId])
 
+    
 
     return (
         <div>
@@ -38,9 +39,9 @@ function MyBookDetails() {
                 <>
                     <BookCard book={books} showLink={false} />
                     <div className="review-info">
-                        <p className="authors">Authors: {books.volumeInfo.authors}</p>
-                        <p className="text-snippet">Description: {books.searchInfo.textSnippet} </p>
-                        <p className="category">Genre: {books.volumeInfo.categories}</p>
+                        <p className="authors"><strong>Authors:</strong> {books.volumeInfo.authors}</p>
+                        <p className="text-snippet"><strong>Description:</strong> {books.searchInfo.textSnippet} </p>
+                        <p className="category"><strong>Genre:</strong> {books.volumeInfo.categories}</p>
                     </div>
 
                     <div className="reviews-box">
