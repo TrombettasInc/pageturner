@@ -17,12 +17,19 @@
 
 .books-container div {
 
-    color: #F96635;
+    color: #FAECB6;
     margin-bottom: 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
    
+}
+
+.book-card{
+    background-color: #FAECB6;
+    border-radius: 8px;
+    align-content: center;
+
 }
 
 .book-card img {
@@ -31,6 +38,7 @@
     width: 300px;
     height: 450px;
     object-fit: cover;
+    object-position: center;
 }
 
 .books-container div img,
@@ -40,7 +48,7 @@
     /* define o espaco entre os items*/
 }
 
-.books-container div svg {
+.books-container div svg  {
     color: goldenrod;
     /* define a cor do rating */
 }
@@ -67,7 +75,7 @@
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    width: fit-content;
+ 
 
 }
 
@@ -100,13 +108,12 @@
 
 @media (min-width: 500px){
     .books-container{
-        justify-content: space-between;
-        display: flex;
+         display: flex;
         flex-wrap: wrap;
     }
 
     .books-container div {
-        width: 30%;
+        width: 25%;
         color: #F96635;
         margin-bottom: 2.5rem;
         display: flex;
@@ -114,6 +121,12 @@
         justify-content: space-between;
         padding: 1rem;
     
+    }
+
+    .book-card{
+        background-color: #FAECB6;
+        border-radius: 8px;
+        margin: 10px
     }
 
 }

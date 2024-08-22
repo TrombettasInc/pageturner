@@ -18,10 +18,11 @@ function NavBar (){
     }
 
     return(
+      <>
         <nav id="navbar">
       <h2>
         <Link to="/">
-        <FaBook/> My Books</Link>
+        <FaBook/> PageTurner </Link>
       </h2>
       <form onSubmit={handleSubmit}>
         <input type="text" 
@@ -35,6 +36,10 @@ function NavBar (){
         </button>
       </form>
     </nav>
+    <div className="header-image">
+    <img src='/src/imgs/bookshelf2.png' alt="Header Background" />
+  </div>
+  </>
 
     )
 }
