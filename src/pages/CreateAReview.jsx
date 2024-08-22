@@ -13,7 +13,7 @@ function CreateAReview() {
   const [name, setName] = useState("");
 
   const navigate = useNavigate();
-  const { id: bookId } = useParams();
+  const { bookId } = useParams();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -82,7 +82,7 @@ function CreateAReview() {
 
         </label>
 
-        <button >Create</button>
+        <button>Create</button>
       </form>
     </div>
   )
