@@ -58,7 +58,6 @@ function EditAReview() {
             review: review,
             rating: rating,
             reviewName: name,
-            id: newReviewId
         }
 
         const updatedReviews = bookData.volumeInfo.userReviews.map(r =>

@@ -1,6 +1,5 @@
 #navbar{
-    display: flex;
-    justify-content: space-between;
+    
     align-items: center;
     padding: 1rem 2rem; /*pros elementos nao ficarem tao proximos das extremidades*/
     background-color: #2BBAA5;
@@ -39,4 +38,13 @@ transition: .4s;
 #navbar form button:hover{
     background-color: transparent;
     color: aqua;
+}
+
+
+@media (min-width: 500px){
+    #navbar{
+        justify-content: space-between;
+        display: flex;
+    }
+
 }

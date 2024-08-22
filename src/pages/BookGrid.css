@@ -1,7 +1,4 @@
 .books-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -19,14 +16,13 @@
 }
 
 .books-container div {
-    width: 30%;
+
     color: #F96635;
     margin-bottom: 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 1rem;
-
+   
 }
 
 .book-card img {
@@ -35,7 +31,7 @@
     width: 300px;
     height: 450px;
     object-fit: cover;
-    margin: 10px;
+  
 }
 
 .books-container div img,
@@ -101,4 +97,24 @@
     background: linear-gradient(#ffb096, #f96635);
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
+}
+
+@media (min-width: 500px){
+    .books-container{
+        justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .books-container div {
+        width: 30%;
+        color: #F96635;
+        margin-bottom: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 1rem;
+    
+    }
+
 }
