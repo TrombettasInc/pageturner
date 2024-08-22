@@ -10,22 +10,37 @@ function EditAReview() {
     const [rating, setRating] = useState(0);
     const [name, setName] = useState("");
     const [originalReview, setOriginalReview] = useState(null);
+    const [bookData, setBookData] = useState(null);
+    
 
     const navigate = useNavigate();
     const { bookId, reviewId } = useParams();
-   
+
 
     useEffect(() => {
+        console.log("Received reviewId from params:", reviewId);
         axios.get(`${API_URL}/${bookId}`)
             .then(response => {
                 const book = response.data;
+                setBookData(book);
+
+                console.log("Book Data:", book);
+                console.log("User Reviews:", book.volumeInfo.userReviews);
+
                 // Find the existing review by its ID
                 const existingReview = book.volumeInfo.userReviews.find(r => r.id === parseInt(reviewId));
+
+               
+                console.log("Existing Review:", existingReview);
                 if (existingReview) {
                     setOriginalReview(existingReview.review);
                     setReview(existingReview.review);
                     setRating(existingReview.rating);
                     setName(existingReview.reviewName);
+                    
+                }
+                else {
+                    console.error("Review not found"); // **para ver se a review nao foi encontrada**
                 }
             })
             .catch(e => console.log("Error loading review", e));
@@ -34,50 +49,53 @@ function EditAReview() {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         
+        if (!bookData) { // **Added check for bookData being null**
+            console.error("Book data not loaded");
+            return;
+        }
 
         const newEditReview = {
             review: review,
             rating: rating,
-            reviewName: name
+            reviewName: name,
+            id: newReviewId
         }
 
-        axios.get(`${API_URL}/${bookId}`)
-        .then(response => {
-            const book = response.data;
-            const updatedReviews = book.volumeInfo.userReviews.map(r => 
-                r.review === originalReview ? newEditReview : r
-            );
+        const updatedReviews = bookData.volumeInfo.userReviews.map(r =>
+            r.review === originalReview ? newEditReview : r
+        );
 
-            return axios.put(`${API_URL}/${bookId}`, {
-                ...book,
-                volumeInfo: {
-                    ...book.volumeInfo,
-                    userReviews: updatedReviews
-                }
-            });
+        axios.put(`${API_URL}/${bookId}`, {
+            
+            ...bookData,
+            volumeInfo: {
+                ...bookData.volumeInfo,
+                userReviews: updatedReviews
+            }
         })
-        .then(() => {
-            navigate(`/books/${bookId}`);
-        })
-        .catch(e => console.log("Error updating review", e));
+            .then(() => {
+                navigate(`/books/${bookId}`);
+            })
+            .catch(e => console.log("Error updating review", e));
     }
 
-    const deleteReview = (reviewToDelete) => {
-        axios.get(`${API_URL}/${bookId}`)
-            .then(response => {
-                const book = response.data;
-                
-                const updatedReviews = book.volumeInfo.userReviews.filter(review => review.review !== reviewToDelete);
-                console.log("Updated reviews array:", updatedReviews);
-    
-                return axios.put(`${API_URL}/${bookId}`, {
-                    ...book,
-                    volumeInfo: {
-                        ...book.volumeInfo,
-                        userReviews: updatedReviews
-                    }
-                });
-            })
+    const deleteReview = () => {
+        
+        if (!bookData) { // **Added check for bookData being null**
+            console.error("Book data not loaded");
+            return;
+        }
+        
+        const updatedReviews = bookData.volumeInfo.userReviews.filter(review => review.review !== originalReview);
+
+        axios.put(`${API_URL}/${bookId}`, {
+            ...bookData,
+            volumeInfo: {
+                ...bookData.volumeInfo,
+                userReviews: updatedReviews
+            }
+        })
+
             .then(() => {
                 console.log("Review deleted successfully");
                 navigate(`/books/${bookId}`);
@@ -90,12 +108,12 @@ function EditAReview() {
 
     return (
         <div className="edit-review-container">
-            
-            <form onSubmit={handleFormSubmit} className="edit-review-form">
-            <h2>Edit Review</h2>
+
+            <form onSubmit={handleFormSubmit} className="edit-review-form" >
+                <h2>Edit Review</h2>
                 <label>
                     Your Name:
-                    <input 
+                    <input
                         type="text"
                         name="name"
                         placeholder="enter your name"
@@ -123,12 +141,12 @@ function EditAReview() {
 
                 </label>
 
-               <button type="submit">Update review</button>
-               <button  onClick={deleteReview}>Delete Review</button>
+                <button type="submit" >Update review</button>
+                <button type= "button" onClick={deleteReview} >Delete Review</button>
 
             </form>
 
-            
+
         </div>
 
     )

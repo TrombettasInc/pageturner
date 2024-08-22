@@ -29,12 +29,12 @@ function MyBookDetails() {
     useEffect(() => {
         GetBook();
         
-    }, [bookId])
+    }, [bookId, reviewId])
 
 
     return (
         <div>
-            {books && books.volumeInfo && (
+            {books && review && (
                 <>
                     <BookCard book={books} showLink={false} />
                     <p className="authors">Authors: {books.volumeInfo.authors}</p>
@@ -43,13 +43,13 @@ function MyBookDetails() {
 
                     <h4>Reviews:</h4>
                     {books.volumeInfo.userReviews && books.volumeInfo.userReviews.length > 0 ? (
-                        books.volumeInfo.userReviews.map((review, index) => (
+                        books.volumeInfo.userReviews.map((element, index) => (
                             <div key={index} className="reviews-container">
-                                <p><strong>Review:</strong> {review.review}</p>
-                                <p><strong>Reviewed by:</strong> {review.reviewName}</p>
-                                <p><strong>Rating:</strong> {review.rating}</p>
+                                <p><strong>Review:</strong> {element.review}</p>
+                                <p><strong>Reviewed by:</strong> {element.reviewName}</p>
+                                <p><strong>Rating:</strong> {element.rating}</p>
                                 
-                                <Link to={`/books/${books.id}/edit-review/${review.id}`}>
+                                <Link to={`/books/${bookId}/edit-review/${element.id}`}>
                                     <button className="button">Edit review</button>
                                     
                                 </Link>

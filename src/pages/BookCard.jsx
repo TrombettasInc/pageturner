@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-import Rating from "../components/Rating";
 import "./BookGrid.css";
 
 function BookCard({ book, showLink = true }) {
@@ -16,7 +15,7 @@ function BookCard({ book, showLink = true }) {
       />
       <h2 className="book-title">{book.volumeInfo?.title || "No title available"}</h2>
       <p>
-        <Rating value={book.volumeInfo?.rating || 0} /> {book.volumeInfo?.rating || "No rating"}
+        "rating placeholder"
       </p>
       {showLink && <Link to={`/books/${book.id}`}>Details</Link>}
     </div>

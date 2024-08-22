@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../config/api";
@@ -6,8 +6,10 @@ import "./CreateAReview.css"
 import { useParams } from "react-router-dom";
 
 
+
 function CreateAReview() {
 
+  const [reviews, setReviews] = useState([]);
   const [review, setReview] = useState("");
   const [rating, setRating] = useState(0);
   const [name, setName] = useState("");
@@ -15,14 +17,32 @@ function CreateAReview() {
   const navigate = useNavigate();
   const { bookId } = useParams();
 
+  useEffect(() => {
+    // Fetch existing reviews when the component loads
+    axios.get(`${API_URL}/${bookId}`)
+      .then(response => {
+        const book = response.data;
+        setReviews(book.volumeInfo.userReviews || []);
+      })
+      .catch(e => console.error("Error loading reviews", e));
+  }, [bookId]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const newReviewId = reviews.map((element) => element.id);
+    const maxId = Math.max(...newReviewId);
+    const nextId = maxId + 1;
 
     const newReview = {
       review: review,
       rating: rating,
       reviewName: name,
+      id: nextId 
     };
+
+    const newReviewList = [newReview, ...reviews]
+    setReviews(newReviewList);
 
     // get the array of reviews for a specific book//
     axios.get(`${API_URL}/${bookId}`)
