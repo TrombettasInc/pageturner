@@ -12,7 +12,7 @@ function MyBookDetails() {
     const [review, setReview] = useState(null);
 
     const { bookId, reviewId } = useParams();
- 
+
 
     const GetBook = () => {
         axios
@@ -20,15 +20,15 @@ function MyBookDetails() {
             .then((response) => {
                 setBooks(response.data);
                 setReview(response.data.volumeInfo.userReviews)
-                
+
             })
             .catch((error) => console.log("error loading", error));
-            
+
     }
-    
+
     useEffect(() => {
         GetBook();
-        
+
     }, [bookId, reviewId])
 
 
@@ -37,28 +37,32 @@ function MyBookDetails() {
             {books && review && (
                 <>
                     <BookCard book={books} showLink={false} />
-                    <p className="authors">Authors: {books.volumeInfo.authors}</p>
-                    <p className="text-snippet">Description: {books.searchInfo.textSnippet} </p>
-                    <p className="category">Genre: {books.volumeInfo.categories}</p>
+                    <div className="review-info">
+                        <p className="authors">Authors: {books.volumeInfo.authors}</p>
+                        <p className="text-snippet">Description: {books.searchInfo.textSnippet} </p>
+                        <p className="category">Genre: {books.volumeInfo.categories}</p>
+                    </div>
 
-                    <h4>Reviews:</h4>
-                    {books.volumeInfo.userReviews && books.volumeInfo.userReviews.length > 0 ? (
-                        books.volumeInfo.userReviews.map((element, index) => (
-                            <div key={index} className="reviews-container">
-                                <p><strong>Review:</strong> {element.review}</p>
-                                <p><strong>Reviewed by:</strong> {element.reviewName}</p>
-                                <p><strong>Rating:</strong> {element.rating}</p>
-                                
-                                <Link to={`/books/${bookId}/edit-review/${element.id}`}>
-                                    <button className="button">Edit review</button>
-                                    
-                                </Link>
-                            </div>
-                        ))
-                    ) : (
-                        <p>No reviews yet.</p>
-                    )}
+                    <div className="reviews-box">
 
+                        <h4>Reviews:</h4>
+                        {books.volumeInfo.userReviews && books.volumeInfo.userReviews.length > 0 ? (
+                            books.volumeInfo.userReviews.map((element, index) => (
+                                <div key={index} className="reviews-container">
+                                    <p><strong>Review:</strong> {element.review}</p>
+                                    <p><strong>Reviewed by:</strong> {element.reviewName}</p>
+                                    <p><strong>Rating:</strong> {element.rating}</p>
+
+                                    <Link to={`/books/${bookId}/edit-review/${element.id}`}>
+                                        <button className="button">Edit review</button>
+
+                                    </Link>
+                                </div>
+                            ))
+                        ) : (
+                            <p>No reviews yet.</p>
+                        )}
+                    </div>
                     <Link to={`/create-review/${books.id}`}>
                         <button className="button">Create a review</button>
                     </Link>

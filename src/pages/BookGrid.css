@@ -55,10 +55,18 @@
 
 .reviews-container {
     margin: 10px;
+    
 }
 
 .reviews-container p {
     margin: 10px;
+}
+
+.review-info {
+    background-color: #FAECB6;
+    border-radius: 8px;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .books-container div a {
