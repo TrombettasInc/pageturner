@@ -31,7 +31,7 @@ function MyBookDetails() {
 
     }, [bookId, reviewId])
 
-    
+
 
     return (
         <div>
@@ -55,7 +55,7 @@ function MyBookDetails() {
                                     <p><strong>Rating:</strong> {element.rating}</p>
 
                                     <Link to={`/books/${bookId}/edit-review/${element.id}`}>
-                                        <button className="button">Edit review</button>
+                                        <button className="review-button">Edit review</button>
 
                                     </Link>
                                 </div>
@@ -65,7 +65,7 @@ function MyBookDetails() {
                         )}
                     </div>
                     <Link to={`/create-review/${books.id}`}>
-                        <button className="button">Create a review</button>
+                        <button className="create-button">Create a review</button>
                     </Link>
 
                 </>

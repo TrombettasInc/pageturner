@@ -8,7 +8,7 @@
 
 .header-image img {
     width: 100%;
-    height: a150px;
+    height: 150px;
     display: block;
     margin-top: -4px; /* To remove any unwanted gap between navbar and image */
 }

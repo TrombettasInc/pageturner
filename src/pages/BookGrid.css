@@ -1,15 +1,16 @@
-.books-container {
+.books-container,
+.reviews-container {
     padding-top: 1rem;
-    max-width: 1200px;
-    justify-content: center;
-    text-align: center;
+    max-width: 400px;
     margin: 0 auto;
+    text-align: center;
+    justify-content: center;
 }
 
 .book-title {
     color: #F9A822;
     font-size: 1.5rem;
-    margin: 1rem 0 1rem;
+    margin: 1rem 0;
 }
 
 .title .query-text {
@@ -17,12 +18,13 @@
 }
 
 .books-container div,
-.reviews-container div  {
-    color:#F9A822;
+.reviews-container div {
+    color: #F9A822;
     margin-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
 .book-card,
@@ -30,14 +32,12 @@
     background-color: #FAECB6;
     border-radius: 8px;
     align-items: center;
-    margin: 10px;
+    margin: 10px auto;
     padding: 20px;
-    width: fit-content;
-    max-width: 100%;
+    width: 400px;
     box-sizing: border-box;
-    display: inline-block
+    display: inline-block;
 }
-
 
 .book-card img {
     border-radius: 8px;
@@ -51,39 +51,58 @@
 
 .books-container div img,
 .books-container div h2,
-.movies-container div p {
+.reviews-container div p {
     margin-bottom: 1rem;
-    /* define o espaco entre os items*/
 }
 
-.books-container svg  {
+.books-container svg {
     color: goldenrod;
-    /* define a cor do rating */
     margin-bottom: 5px;
-    margin-right: 0.5rem; 
+    margin-right: 0.5rem;
     vertical-align: middle;
     font-size: 1rem;
 }
-.books-container svg p{
+
+.books-container svg p {
     align-items: center;
     font-size: 1rem;
     margin-bottom: 1rem;
 }
 
+.reviews-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
 
 .reviews-container p {
-    margin: 10px;
+    margin: 0 0 10px 0; 
+    width: 100%; 
+    
+}
+
+.text-snippet {
+    padding: 15px; 
+    line-height: 1.6; 
+    margin-bottom: 15px; 
 }
 
 .review-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 400px;
     background-color: #FAECB6;
     border-radius: 8px;
-    margin-top: 0;
-    padding-top: 0;
 }
 
-.books-container div a {
-    /*define a cor dos buttons details*/
+.books-container div a,
+.reviews-container div a {
     background: linear-gradient(#6ce4ba, #61c489);
     margin-top: 1rem;
     border: none;
@@ -97,15 +116,16 @@
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-
+    display: inline-block;
 }
 
-.books-container div a:hover {
+.books-container div a:hover,
+.reviews-container div a:hover {
     background-color: transparent;
     color: rgb(61, 63, 63);
 }
 
-.button {
+.review-button{
     background: linear-gradient(#6ce4ba, #61c489);
     border: none;
     color: white;
@@ -117,9 +137,27 @@
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    margin: 5px;
+    margin: 10px auto;
+    display: block;
+    width: fit-content;
 }
 
+.create-button{
+    background: linear-gradient(#6ce4ba, #61c489);
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    margin: 10px auto;
+    display: block;
+
+}
 
 .button:hover {
     background: linear-gradient(#ffb096, #f96635);
@@ -127,27 +165,31 @@
     transform: translateY(-2px);
 }
 
-@media (min-width: 500px){
+@media (min-width: 500px) {
     .books-container,
-    .reviews-container{
-         display: flex;
+    .reviews-container {
+        display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        max-width: 500px;
     }
 
-    .books-container div {
+    .books-container div,
+    .reviews-container div {
         width: 25%;
-        color:#F9A822;
+        color: #F9A822;
         margin-bottom: 2.5rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-    
+        align-items: center;
+        max-width: 500px;
+        text-align: center;
     }
 
-    .book-card{
-        background-color: #FAECB6;
-        border-radius: 8px;
-        margin: 10px
+    .book-card,
+    .reviews-box {
+        max-width: 400px;
+        text-align: center;
     }
-
 }
