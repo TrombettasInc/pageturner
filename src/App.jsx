@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage'
 import Search from './pages/Search'
 import CreateAReview from './pages/CreateAReview'
 import EditAReview from './pages/EditAReview'
+import Footer from './components/Footer'
 
 function App() {
   
@@ -21,8 +22,11 @@ function App() {
       <Route path="books/:bookId" element={<MyBookDetails/>} />
       <Route path="create-review/:bookId" element={<CreateAReview/>}/>
       <Route path="books/:bookId/edit-review/:reviewId" element={<EditAReview/>}/>
+      
       <Route path="search" element={<Search/>} />
     </Routes>
+
+    <Footer/>
   
     </>
   )

@@ -25,7 +25,7 @@ function NavBar (){
       </h2>
       <form onSubmit={handleSubmit}>
         <input type="text" 
-        placeholder="Search Book" 
+        placeholder="Get inspired" 
         onChange={(e)=>setSearch(e.target.value)}
         value={search} // permite manipular o valor do search de acordo com o state //
         

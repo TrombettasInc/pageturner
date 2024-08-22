@@ -1,0 +1,32 @@
+.footer {
+    align-items: center;
+    padding: 1rem 2rem; /*pros elementos nao ficarem tao proximos das extremidades*/
+    background-color: #2BBAA5;
+    border-radius: 6px;
+}
+
+.footer-content {
+    color: #2e2e2e;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    text-decoration: none;
+    color: #555;
+}
+
+.social-links {
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    color: #2e2e2e;
+    margin-right: 10px;
+    font-size: 16px; 
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #555;
+}
