@@ -1,6 +1,8 @@
 .books-container {
-    padding: 2rem;
+    padding-top: 1rem;
     max-width: 1200px;
+    justify-content: center;
+    text-align: center;
     margin: 0 auto;
 }
 
@@ -8,35 +10,34 @@
     color: #F9A822;
     font-size: 1.5rem;
     margin: 1rem 0 1rem;
-
 }
 
 .title .query-text {
     color: #F9A822;
 }
 
-.books-container div {
-
-    color: #FAECB6;
-    margin-bottom: 2.5rem;
+.books-container div,
+.reviews-container div  {
+    color:#F9A822;
+    margin-bottom: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-   
 }
 
-.book-card{
+.book-card,
+.reviews-box {
     background-color: #FAECB6;
     border-radius: 8px;
-    align-content: center;
-
+    align-items: center;
+    margin: 10px;
+    padding: 20px;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: inline-block
 }
 
-.reviews-box{
-    background-color: #FAECB6;
-    border-radius: 8px;
-    align-content: center;
-}
 
 .book-card img {
     border-radius: 8px;
@@ -45,6 +46,7 @@
     height: 450px;
     object-fit: cover;
     object-position: center;
+    margin: 0 auto;
 }
 
 .books-container div img,
@@ -54,15 +56,20 @@
     /* define o espaco entre os items*/
 }
 
-.books-container div svg  {
+.books-container svg  {
     color: goldenrod;
     /* define a cor do rating */
+    margin-bottom: 5px;
+    margin-right: 0.5rem; 
+    vertical-align: middle;
+    font-size: 1rem;
+}
+.books-container svg p{
+    align-items: center;
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
-.reviews-container {
-    margin: 10px;
-    
-}
 
 .reviews-container p {
     margin: 10px;
@@ -78,6 +85,7 @@
 .books-container div a {
     /*define a cor dos buttons details*/
     background: linear-gradient(#6ce4ba, #61c489);
+    margin-top: 1rem;
     border: none;
     color: white;
     padding: 12px 24px;
@@ -89,7 +97,6 @@
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
- 
 
 }
 
@@ -121,19 +128,19 @@
 }
 
 @media (min-width: 500px){
-    .books-container{
+    .books-container,
+    .reviews-container{
          display: flex;
         flex-wrap: wrap;
     }
 
     .books-container div {
         width: 25%;
-        color: #3dd9f1;
+        color:#F9A822;
         margin-bottom: 2.5rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        padding: 1rem;
     
     }
 
