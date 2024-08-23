@@ -1,8 +1,18 @@
-# React + Vite
+# Page Turner app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description 
 
-Currently, two official plugins are available:
+A App where you can rate and write reviews for a book. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### How to import :
+
+- fork the repo on https://github.com/TrombettasInc/pageturner
+- clone 
+- install dependencies ( npm install )
+- run the application ( npm run dev )
+- have fun !
+
+
+#### Demo 
+
+https://pageturnerbookrating.netlify.app/
