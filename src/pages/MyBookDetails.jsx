@@ -46,11 +46,11 @@ function MyBookDetails() {
 
                     <div className="reviews-box">
 
-                        <h4>Reviews:</h4>
+                        <h4>Top Reviews:</h4>
                         {books.volumeInfo.userReviews && books.volumeInfo.userReviews.length > 0 ? (
                             books.volumeInfo.userReviews.map((element, index) => (
                                 <div key={index} className="reviews-container">
-                                    <p><strong>Review:</strong> {element.review}</p>
+                                    <p>{element.review}</p>
                                     <p><strong>Reviewed by:</strong> {element.reviewName}</p>
                                     <p><strong>Rating:</strong> {element.rating}</p>
 
