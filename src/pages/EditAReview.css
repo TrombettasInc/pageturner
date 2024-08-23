@@ -84,7 +84,7 @@
 }
 
 .edit-review-form button:hover {
-    background: linear-gradient(#ffb096, #f96635);
+    color: #F9A822;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }

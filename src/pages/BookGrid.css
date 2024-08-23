@@ -81,7 +81,6 @@
 .reviews-container p {
     margin: 0 0 10px 0; 
     width: 100%; 
-    
 }
 
 .text-snippet {
@@ -121,8 +120,7 @@
 
 .books-container div a:hover,
 .reviews-container div a:hover {
-    background-color: transparent;
-    color: rgb(61, 63, 63);
+    color: #F9A822;
 }
 
 .review-button{
@@ -159,8 +157,14 @@
 
 }
 
-.button:hover {
-    background: linear-gradient(#ffb096, #f96635);
+.create-button:hover{
+    color:#F9A822;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.review-button:hover {
+    color:#F9A822;
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }
