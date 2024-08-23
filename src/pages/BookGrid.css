@@ -170,14 +170,14 @@
     .reviews-container {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between; /* Distribute space evenly between items */
-        max-width: 1200px; /* Allow more space on larger screens */
+        justify-content: space-between; 
+        max-width: 1200px; 
         margin: 0 auto;
     }
 
     .books-container div,
     .reviews-container div {
-        width: calc(33.333% - 20px); /* Adjust to fit three items per row */
+        width: calc(33.333% - 20px); 
         margin-bottom: 2.5rem;
         display: flex;
         flex-direction: column;
@@ -188,9 +188,9 @@
 
     .book-card,
     .reviews-box {
-        max-width: 100%; /* Let the cards take full width within their container */
+        max-width: 100%; 
         text-align: center;
-        margin: 10px; /* Add margin to space out cards */
+        margin: 10px;
     }
 }
 

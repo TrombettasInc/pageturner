@@ -16,7 +16,7 @@ function Footer() {
             </div>
             <div className="footer-content">
                 <p>&copy; 2024 TrombettasInc. <br />
-                    All rights reserved.</p>
+                    All rights reserved</p>
                 <a href="https://github.com/TrombettasInc/pageturner">Link to Repo</a>
             </div>
         </footer>

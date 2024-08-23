@@ -1,28 +1,32 @@
-#navbar{
+#navbar {
     align-items: center;
-    padding: 1rem 2rem; /*pros elementos nao ficarem tao proximos das extremidades*/
+    padding: 1rem 2rem;
+    /*pros elementos nao ficarem tao proximos das extremidades*/
     background-color: #2BBAA5;
     border-radius: 6px;
- 
+
 }
 
 .header-image img {
     width: 100%;
     height: 150px;
     display: block;
-    margin-top: -4px; /* To remove any unwanted gap between navbar and image */
+    margin-top: -4px;
+    /* To remove any unwanted gap between navbar and image */
 }
+
 #navbar h2 a {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 5px;
-    text-shadow: #ffffff;
+    font-size: 3rem;
 }
 
 #navbar form {
- padding: 10px;
- gap: 2rem;   /* pra afastar o input de texto com o de submit */
+    padding: 10px;
+    gap: 2rem;
+    /* pra afastar o input de texto com o de submit */
 }
 
 #navbar input {
@@ -32,31 +36,32 @@
     margin-right: 10px
 }
 
-#navbar form button{
-background-color: #93D3AE;
-border: 2px solid #93D3AE;
-border-radius: 4px;
-color: aliceblue;
-padding: 0.4rem;
-font-size: 0.8rem;
-cursor: pointer;
-transition: .4s;
+#navbar form button {
+    background-color: #93D3AE;
+    border: 2px solid #93D3AE;
+    border-radius: 4px;
+    color: aliceblue;
+    padding: 0.4rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: .4s;
 }
 
-#navbar form button:hover{
+#navbar form button:hover {
     background-color: transparent;
     color: aqua;
 }
 
 
-@media (min-width: 500px){
-    #navbar{
+@media (min-width: 500px) {
+    #navbar {
         justify-content: space-between;
-        display:flex
+        display: flex
     }
 
     #navbar form {
         display: flex;
-        gap: .5rem;   /* pra afastar o input de texto com o de submit */
-       }
+        gap: .5rem;
+        /* pra afastar o input de texto com o de submit */
+    }
 }

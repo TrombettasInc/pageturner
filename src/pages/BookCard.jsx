@@ -22,7 +22,7 @@ function BookCard({ book, showLink = true }) {
         alt={book.volumeInfo ? book.volumeInfo.title : "No title available"}
       />
       <h2 className="book-title">{book.volumeInfo?.title || "0"}</h2>
-      <p className="books-container div svg">
+      <p className="books-container svg">
         <FaStar/> {averageRating}
       </p>
       {showLink && <Link to={`/books/${book.id}`}>Details</Link>}
