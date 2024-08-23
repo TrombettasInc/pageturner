@@ -37,7 +37,7 @@ function NavBar (){
       </form>
     </nav>
     <div className="header-image">
-    <img src='/src/imgs/bookshelf2.png' alt="Header" />
+    <img src='/bookshelf2.png' alt="Header" />
   </div>
   </>
 

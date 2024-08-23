@@ -1,7 +1,7 @@
 .books-container,
 .reviews-container {
     padding-top: 1rem;
-    max-width: 400px;
+    max-width: 90%;
     margin: 0 auto;
     text-align: center;
     justify-content: center;
@@ -34,7 +34,7 @@
     align-items: center;
     margin: 10px auto;
     padding: 20px;
-    width: 400px;
+    width: 90%;
     box-sizing: border-box;
     display: inline-block;
 }
@@ -96,7 +96,7 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    max-width: 400px;
+    max-width: 90%;
     background-color: #FAECB6;
     border-radius: 8px;
 }
@@ -171,7 +171,8 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between; 
-        max-width: 1200px; 
+        justify-content: center;
+        width: 80%; 
         margin: 0 auto;
     }
 
@@ -187,10 +188,13 @@
     }
 
     .book-card,
-    .reviews-box {
-        max-width: 100%; 
+    .reviews-box,
+    .review-info {
+        width: 80%; 
         text-align: center;
-        margin: 10px;
+        align-items: center;
+        margin: 10px auto;
+        justify-content: center ;
     }
 }
 

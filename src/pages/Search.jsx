@@ -40,7 +40,7 @@ function Search() {
             alt={book.volumeInfo ? book.volumeInfo.title : "No title available"}
           />
           <h2 className="book-title">{book.volumeInfo?.title || "No title available"}</h2>
-          <p>"rating placeholder"</p>
+          
           <a 
             href={`https://www.google.com/search?tbm=bks&q=${query}`} 
             target="_blank" 
